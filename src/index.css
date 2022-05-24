@@ -6,18 +6,95 @@
     --smPadding: 5px;
     --medPadding: 10px;
     --lgPadding: 15px;
+
+    --bgColorOne: aquamarine;
+    --bgColorTwo: #bffff3;
+    
+    --accentColor: #597ab3;
+
+    --lightColor: #DFFFF9;
+    --darkColor: #202020;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
 html,
-body {
-    margin: 0px;
-    padding: 0px;
+body,
+.layer {
     height: 100vh;
     max-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Permanent Marker', cursive;
 }
 
 .layer {
-    height: 100vh;
-    background-color: aquamarine;
+    padding: var(--lgPadding);
+    background-color: var(--bgColorOne);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.layer > h2 {
+    margin: var(--lgPadding);
+    text-align: center;
+}
+
+.layer > #startingDiv {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bgColorTwo);
+    color: var(--darkColor);
+    padding: var(--lgPadding);
+}
+
+.layer > #startingDiv > h1 {
+    margin: var(--medPadding);
+    align-self: center;
+}
+
+#startingDiv > .playerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#startingDiv > .playerDiv > h4 {
+    text-align: center;
+}
+
+#startingDiv > .playerDiv > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.playerFont {
+    content: url("../data/images/playerFont.png")
+}
+
+.botFont {
+    content: url("../data/images/botFont.png")
+}
+
+.playerFont, .botFont {
+    max-width: calc(30%);
+    height: auto;
+    margin: var(--smPadding);
+}
+
+.hoverGrow:hover{
+    transform: scale(1.1);
+}
+
+.hoverAccentColor:hover {
+    background-color: var(--accentColor);
+}
+
+.hoverDarkBorder:hover{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
