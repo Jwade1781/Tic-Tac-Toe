@@ -1,0 +1,23 @@
+:root{
+    --smCurve: 10px;
+    --medCurve: 20px;
+    --circleCurve: 50%;
+
+    --smPadding: 5px;
+    --medPadding: 10px;
+    --lgPadding: 15px;
+}
+
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    max-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.layer {
+    height: 100vh;
+    background-color: aquamarine;
+}
