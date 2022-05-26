@@ -18,6 +18,7 @@
 }
 
 * {
+    font-family: 'Permanent Marker', cursive;
     margin: 0px;
     padding: 0px;
 }
@@ -26,7 +27,6 @@ html,
 body,
 .layer {
     height: 100%;
-    font-family: 'Permanent Marker', cursive;
     background-color: var(--bgColorOne);
 }
 
@@ -42,7 +42,10 @@ body,
     text-align: center;
 }
 
-.layer > #startingDiv {
+
+
+
+.layer > div > #startingDiv {
     display: flex;
     flex-direction: row;
     background-color: var(--bgColorTwo);
@@ -90,6 +93,18 @@ body,
     margin: var(--smPadding);
 }
 
+.layer > :nth-child(2){
+    display: flex;
+    flex-direction: column;
+}
+
+.layer > :nth-child(2) > button {
+    margin-top: var(--medPadding);
+    padding: var(--smPadding) var(--lgPadding);
+    max-width: fit-content;
+    align-self: center;
+}
+
 #gameDiv {
     background-color: purple;
     height: 75%;
@@ -100,7 +115,8 @@ body,
 }
 
 #gameBoard {
-    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
     height: 100%;
     display: grid;
     background-color: red;
@@ -135,8 +151,8 @@ body,
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-.sizeUpAnimation {
-    animation: sizeUp 2s linear forwards;
+.sizeUpStartAnimation {
+    animation: sizeUpStart 2s linear forwards;
 }
 .boxElement {
     display: flex;
@@ -144,10 +160,12 @@ body,
     align-items: center;
 }
 .boxHeader {
-    font-size: 100px;
+    font-size: 75px;
 }
 
-@keyframes sizeUp {
+.hoverGrowAnimation:hover {animation: grow 0.2s linear forwards;}
+
+@keyframes sizeUpStart {
     0% {
         opacity: 0;
         transform: scale(0);
@@ -158,5 +176,9 @@ body,
         opacity: 1;
         filter: blur(0px);
     }
+}
+
+@keyFrames grow {
+    100% {transform: scale(1.25);}
 }
 
