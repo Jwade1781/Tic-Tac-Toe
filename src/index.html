@@ -14,15 +14,16 @@
 </head>
 
 <body>
-    <div class="layer">
+    <div class="layer sizeUpAnimation">
         <h2>Tic Tac Toe</h2>
         <div id="startingDiv">
             <div id="player1Div" class="playerDiv">
                 <h4>First Player -- X</h4>
-                <iframe class="hoverLightBorder" src="https://giphy.com/embed/l41lGnxllmN3YqOyI" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                <div>
-                    <img class="playerFont hoverAccentColor hoverDarkBorder">
-                    <img class="botFont hoverAccentColor hoverDarkBorder">
+                <iframe class="hoverLightBorder" src="https://giphy.com/embed/l41lGnxllmN3YqOyI" width="480"
+                    height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                <div class="fontDivs darkBorder">
+                    <img class="playerFont hoverAccentColor hoverDarkBorder" onclick="gameController.setPlayer(1, true)">
+                    <img class="botFont hoverAccentColor hoverDarkBorder" onclick="gameController.setPlayer(1, false)">
                 </div>
             </div>
 
@@ -30,12 +31,16 @@
 
             <div id="player2Div" class="playerDiv">
                 <h4>Second Player -- O</h4>
-                <iframe src="https://giphy.com/embed/xT77XUw1XMVGIxgove" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-                <div>
-                    <img class="playerFont hoverAccentColor hoverDarkBorder">
-                    <img class="botFont hoverAccentColor hoverDarkBorder">
+                <iframe src="https://giphy.com/embed/xT77XUw1XMVGIxgove" width="480" height="480" frameBorder="0"
+                    class="giphy-embed" allowFullScreen></iframe>
+                <div class="fontDivs darkBorder">
+                    <img class="playerFont hoverAccentColor hoverDarkBorder" onclick="gameController.setPlayer(2, true)">
+                    <img class="botFont hoverAccentColor hoverDarkBorder" onclick="gameController.setPlayer(2, false)">
                 </div>
             </div>
+        </div>
+
+        <div id="gameDiv">
         </div>
     </div>
 </body>

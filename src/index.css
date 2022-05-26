@@ -5,11 +5,12 @@
 
     --smPadding: 5px;
     --medPadding: 10px;
-    --lgPadding: 15px;
+    --lgPadding: 30px;
 
     --bgColorOne: aquamarine;
     --bgColorTwo: #bffff3;
-    
+    --bgColorThree: #b39d59;
+
     --accentColor: #597ab3;
 
     --lightColor: #DFFFF9;
@@ -24,14 +25,13 @@
 html,
 body,
 .layer {
-    height: 100vh;
-    max-height: 100vh;
+    height: 100%;
     font-family: 'Permanent Marker', cursive;
+    background-color: var(--bgColorOne);
 }
 
 .layer {
     padding: var(--lgPadding);
-    background-color: var(--bgColorOne);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +50,7 @@ body,
     padding: var(--lgPadding);
 }
 
-.layer > #startingDiv > h1 {
+#startingDiv > h1 {
     margin: var(--medPadding);
     align-self: center;
 }
@@ -70,7 +70,10 @@ body,
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
 
+.fontDivs {
+    background-color: var(--bgColorThree);
 }
 
 .playerFont {
@@ -87,6 +90,35 @@ body,
     margin: var(--smPadding);
 }
 
+#gameDiv {
+    background-color: purple;
+    height: 75%;
+    width: 75%;
+}
+#gameDiv, #gameBoard {
+    display: none;
+}
+
+#gameBoard {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: red;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+}
+
+#gameBoard > .boxElement {
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+}
+
+#gameBoard > .boxElement:hover {
+    background-color: purple;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;   
+}
+
 .hoverGrow:hover{
     transform: scale(1.1);
 }
@@ -95,6 +127,36 @@ body,
     background-color: var(--accentColor);
 }
 
+.darkBorder {
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
 .hoverDarkBorder:hover{
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
+
+.sizeUpAnimation {
+    animation: sizeUp 2s linear forwards;
+}
+.boxElement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boxHeader {
+    font-size: 100px;
+}
+
+@keyframes sizeUp {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        filter: blur(4px);
+        }
+    50% {transform: scale(1);}
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
