@@ -134,6 +134,7 @@ class GameController {
         domController.setANNOUNCEMENT_HEADER("Player 1's Turn");
         this.playerTurn = this.players.getPlayer1();
         this.toggleDisplay();
+        if (!(this.playerTurn.getHuman())) this.botMove();
     }
 
     endGame() {
@@ -165,6 +166,10 @@ class GameController {
         return false;
     }
 
+    botMove(){
+        this.players.botMove(this.playerTurn);
+    }
+
     changeTurn() {
         let totalMovesPlayed = this.players.getPlayer1().getMoves().length + this.players.getPlayer2().getMoves().length;
         const TOTAL_POSSIBLE_MOVES = document.querySelectorAll(".boxElement").length;
@@ -187,7 +192,7 @@ class GameController {
                     }
 
                     if (!this.playerTurn.getHuman())
-                        this.players.botMove(this.playerTurn);
+                        this.botMove();
                 }
 
                 else if (totalMovesPlayed === document.querySelectorAll(".boxElement").length) {
