@@ -100,17 +100,20 @@ class Players {
     }
 
     botMove(player) {
-        let picked;
-        let validMove = false;
-        while (!validMove) {
-            picked = player.botMove();
-            validMove = !(this.player1.getMoves().includes(picked));
-            if (validMove)
-                validMove = !(this.player2.getMoves().includes(picked));
-        }
-        player.setMove(picked);
-        document.querySelectorAll(".boxElement")[picked].firstChild.textContent = player.getMoveChar();
-        gameController.changeTurn();
+        const BOT_TIMEOUT_MS = 500;
+        setTimeout(() => {
+            let picked;
+            let validMove = false;
+            while (!validMove) {
+                picked = player.botMove();
+                validMove = !(this.player1.getMoves().includes(picked));
+                if (validMove)
+                    validMove = !(this.player2.getMoves().includes(picked));
+            }
+            player.setMove(picked);
+            document.querySelectorAll(".boxElement")[picked].firstChild.textContent = player.getMoveChar();
+            gameController.changeTurn();
+        }, BOT_TIMEOUT_MS);
     }
 
     printPlayers() { console.log(`Player 1 -- Human : ${this.player1.getHuman()} -- Char : ${this.player1.getMoveChar()}\nPlayer 2 -- Human : ${this.player2.getHuman()} -- Char : ${this.player2.getMoveChar()}`) }
@@ -166,7 +169,7 @@ class GameController {
         return false;
     }
 
-    botMove(){
+    botMove() {
         this.players.botMove(this.playerTurn);
     }
 
